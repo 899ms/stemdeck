@@ -242,6 +242,7 @@ const en = {
   "topbar.uploadFile": "Upload audio file",
   "extract.label": "Extract",
   "extract.all": "All",
+  "extract.moreAria": "Choose stems",
   "process.splitStems": "Split stems",
 
   "stem.original": "Original",
@@ -345,11 +346,7 @@ const en = {
 
   "panels.timelineTitle": "Show or hide the timeline",
 
-  "panels.all": "All",
-
   "panels.collapse": "Collapse",
-
-  "panels.allTitle": "Show or hide every panel",
   "mixer.hint": "Drag fader · M/S",
   "stemsPanel.ariaLabel": "Stems",
 
@@ -506,6 +503,7 @@ const en = {
   "friends.role.seratone": "TV-based karaoke system",
   "friends.role.slashcam": "Camera, video, and post-production media",
   "friends.role.rbass": "Bass-player community",
+  "friends.role.notAnotherAudioPodcast": "Audio, music and tech industry podcast by working professionals",
 
   "release.title": "New release available",
   "release.closeAria": "Close release dialog",
@@ -861,6 +859,7 @@ const pl = {
   "topbar.uploadFile": "Wgraj plik audio",
   "extract.label": "Wyodrębnij",
   "extract.all": "Wszystko",
+  "extract.moreAria": "Wybierz ścieżki",
   "process.splitStems": "Rozdziel ścieżki",
 
   "stem.original": "Oryginał",
@@ -964,11 +963,7 @@ const pl = {
 
   "panels.timelineTitle": "Pokaż lub ukryj oś czasu",
 
-  "panels.all": "Wszystko",
-
   "panels.collapse": "Zwiń",
-
-  "panels.allTitle": "Pokaż lub ukryj wszystkie panele",
   "mixer.hint": "Przeciągnij suwak · M/S",
   "stemsPanel.ariaLabel": "Ścieżki",
 
@@ -1123,6 +1118,7 @@ const pl = {
   "friends.role.seratone": "System karaoke na telewizor",
   "friends.role.slashcam": "Media o kamerach, wideo i postprodukcji",
   "friends.role.rbass": "Społeczność basistów",
+  "friends.role.notAnotherAudioPodcast": "Podcast o branży audio, muzycznej i technologicznej, prowadzony przez praktyków",
 
   "release.title": "Dostępna nowa wersja",
   "release.closeAria": "Zamknij okno wydania",
@@ -1470,6 +1466,7 @@ const ja = {
   "topbar.uploadFile": "音声ファイルをアップロード",
   "extract.label": "抽出",
   "extract.all": "すべて",
+  "extract.moreAria": "抽出するパートを選ぶ",
   "process.splitStems": "パートを分離",
 
   "stem.original": "オリジナル",
@@ -1573,11 +1570,7 @@ const ja = {
 
   "panels.timelineTitle": "タイムラインの表示を切り替えます",
 
-  "panels.all": "すべて",
-
   "panels.collapse": "折りたたむ",
-
-  "panels.allTitle": "すべてのパネルの表示を切り替えます",
   "mixer.hint": "フェーダーをドラッグ · M/S",
   "stemsPanel.ariaLabel": "パート",
 
@@ -1731,6 +1724,7 @@ const ja = {
   "friends.role.seratone": "テレビで使えるカラオケシステム",
   "friends.role.slashcam": "カメラ、映像、ポストプロダクションのメディア",
   "friends.role.rbass": "ベーシストのコミュニティ",
+  "friends.role.notAnotherAudioPodcast": "オーディオ、音楽、テック業界のポッドキャスト。現役のプロが語る",
 
   "release.title": "新しいリリースがあります",
   "release.closeAria": "リリースダイアログを閉じる",
@@ -2054,6 +2048,7 @@ const zhHans = {
   "topbar.uploadFile": "上传音频文件",
   "extract.label": "提取",
   "extract.all": "全部",
+  "extract.moreAria": "选择要提取的音轨",
   "process.splitStems": "分离音轨",
 
   "stem.original": "原始",
@@ -2157,11 +2152,7 @@ const zhHans = {
 
   "panels.timelineTitle": "显示或隐藏时间轴",
 
-  "panels.all": "全部",
-
   "panels.collapse": "折叠",
-
-  "panels.allTitle": "显示或隐藏所有面板",
   "mixer.hint": "拖动推子 · M/S",
   "stemsPanel.ariaLabel": "音轨",
 
@@ -2315,6 +2306,7 @@ const zhHans = {
   "friends.role.seratone": "基于电视的卡拉OK系统",
   "friends.role.slashcam": "相机、视频与后期制作媒体",
   "friends.role.rbass": "贝斯手社区",
+  "friends.role.notAnotherAudioPodcast": "关于音频、音乐与科技行业的播客。由一线从业者主持",
 
   "release.title": "有新版本可用",
   "release.closeAria": "关闭版本对话框",
@@ -2638,6 +2630,7 @@ const de = {
   "topbar.uploadFile": "Audiodatei hochladen",
   "extract.label": "Extrahieren",
   "extract.all": "Alle",
+  "extract.moreAria": "Stems auswählen",
   "process.splitStems": "Stems trennen",
 
   "stem.original": "Original",
@@ -2741,11 +2734,7 @@ const de = {
 
   "panels.timelineTitle": "Zeitleiste ein- oder ausblenden",
 
-  "panels.all": "Alle",
-
   "panels.collapse": "Einklappen",
-
-  "panels.allTitle": "Alle Bereiche ein- oder ausblenden",
   "mixer.hint": "Fader ziehen · M/S",
   "stemsPanel.ariaLabel": "Stems",
 
@@ -2900,6 +2889,7 @@ const de = {
   "friends.role.seratone": "Karaoke-System für den Fernseher",
   "friends.role.slashcam": "Medien zu Kamera, Video und Postproduktion",
   "friends.role.rbass": "Community für Bassistinnen und Bassisten",
+  "friends.role.notAnotherAudioPodcast": "Podcast über die Audio-, Musik- und Tech-Branche von Profis aus der Praxis",
 
   "release.title": "Neue Version verfügbar",
   "release.closeAria": "Versionsdialog schließen",
@@ -3233,6 +3223,7 @@ const pt = {
   "topbar.uploadFile": "Enviar arquivo de áudio",
   "extract.label": "Extrair",
   "extract.all": "Todos",
+  "extract.moreAria": "Escolher as faixas",
   "process.splitStems": "Separar stems",
 
   "stem.original": "Original",
@@ -3336,11 +3327,7 @@ const pt = {
 
   "panels.timelineTitle": "Mostrar ou ocultar a linha do tempo",
 
-  "panels.all": "Tudo",
-
   "panels.collapse": "Recolher",
-
-  "panels.allTitle": "Mostrar ou ocultar todos os painéis",
   "mixer.hint": "Arraste o fader · M/S",
   "stemsPanel.ariaLabel": "Stems",
 
@@ -3495,6 +3482,7 @@ const pt = {
   "friends.role.seratone": "Sistema de karaokê para TV",
   "friends.role.slashcam": "Mídia sobre câmera, vídeo e pós-produção",
   "friends.role.rbass": "Comunidade de baixistas",
+  "friends.role.notAnotherAudioPodcast": "Podcast sobre a indústria de áudio, música e tecnologia, feito por profissionais da área",
 
   "release.title": "Nova versão disponível",
   "release.closeAria": "Fechar diálogo de versão",
@@ -3830,6 +3818,7 @@ const id = {
   "topbar.uploadFile": "Unggah file audio",
   "extract.label": "Ekstrak",
   "extract.all": "Semua",
+  "extract.moreAria": "Pilih stem",
   "process.splitStems": "Pisahkan stem",
 
   "stem.original": "Asli",
@@ -3933,11 +3922,7 @@ const id = {
 
   "panels.timelineTitle": "Tampilkan atau sembunyikan lini masa",
 
-  "panels.all": "Semua",
-
   "panels.collapse": "Ciutkan",
-
-  "panels.allTitle": "Tampilkan atau sembunyikan semua panel",
   "mixer.hint": "Seret fader · M/S",
   "stemsPanel.ariaLabel": "Stem",
 
@@ -4091,6 +4076,7 @@ const id = {
   "friends.role.seratone": "Sistem karaoke berbasis TV",
   "friends.role.slashcam": "Media seputar kamera, video, dan pascaproduksi",
   "friends.role.rbass": "Komunitas pemain bas",
+  "friends.role.notAnotherAudioPodcast": "Podcast tentang industri audio, musik, dan teknologi oleh para profesional aktif",
 
   "release.title": "Versi baru tersedia",
   "release.closeAria": "Tutup dialog versi",
@@ -4414,6 +4400,7 @@ const fr = {
   "topbar.uploadFile": "Importer un fichier audio",
   "extract.label": "Extraire",
   "extract.all": "Tout",
+  "extract.moreAria": "Choisir les pistes",
   "process.splitStems": "Séparer les pistes",
 
   "stem.original": "Original",
@@ -4517,11 +4504,7 @@ const fr = {
 
   "panels.timelineTitle": "Afficher ou masquer la chronologie",
 
-  "panels.all": "Tout",
-
   "panels.collapse": "Réduire",
-
-  "panels.allTitle": "Afficher ou masquer tous les panneaux",
   "mixer.hint": "Glissez le fader · M/S",
   "stemsPanel.ariaLabel": "Pistes",
 
@@ -4676,6 +4659,7 @@ const fr = {
   "friends.role.seratone": "Système de karaoké sur téléviseur",
   "friends.role.slashcam": "Médias sur la caméra, la vidéo et la postproduction",
   "friends.role.rbass": "Communauté de bassistes",
+  "friends.role.notAnotherAudioPodcast": "Podcast sur les industries de l'audio, de la musique et de la tech, par des professionnels en activité",
 
   "release.title": "Nouvelle version disponible",
   "release.closeAria": "Fermer la fenêtre de version",
@@ -5127,6 +5111,7 @@ const es = {
   "topbar.uploadFile": "Subir archivo de audio",
   "extract.label": "Extraer",
   "extract.all": "Todo",
+  "extract.moreAria": "Elegir las pistas",
   "process.splitStems": "Separar stems",
 
   "stem.original": "Original",
@@ -5230,11 +5215,7 @@ const es = {
 
   "panels.timelineTitle": "Mostrar u ocultar la línea de tiempo",
 
-  "panels.all": "Todo",
-
   "panels.collapse": "Contraer",
-
-  "panels.allTitle": "Mostrar u ocultar todos los paneles",
   "mixer.hint": "Arrastra el fader · M/S",
   "stemsPanel.ariaLabel": "Stems",
 
@@ -5389,6 +5370,7 @@ const es = {
   "friends.role.seratone": "Sistema de karaoke para televisión",
   "friends.role.slashcam": "Medios sobre cámara, vídeo y posproducción",
   "friends.role.rbass": "Comunidad de bajistas",
+  "friends.role.notAnotherAudioPodcast": "Podcast sobre la industria del audio, la música y la tecnología, hecho por profesionales en activo",
 
   "release.title": "Nueva versión disponible",
   "release.closeAria": "Cerrar el diálogo de la versión",
@@ -5745,6 +5727,7 @@ const ko = {
   "topbar.uploadFile": "오디오 파일 업로드",
   "extract.label": "추출",
   "extract.all": "전체",
+  "extract.moreAria": "추출할 스템 선택",
   "process.splitStems": "스템 분리",
 
   "stem.original": "원본",
@@ -5848,11 +5831,7 @@ const ko = {
 
   "panels.timelineTitle": "타임라인 표시하거나 숨기기",
 
-  "panels.all": "전체",
-
   "panels.collapse": "접기",
-
-  "panels.allTitle": "모든 패널 표시하거나 숨기기",
   "mixer.hint": "페이더 드래그 · M/S",
   "stemsPanel.ariaLabel": "스템",
 
@@ -6006,6 +5985,7 @@ const ko = {
   "friends.role.seratone": "TV 기반 노래방 시스템",
   "friends.role.slashcam": "카메라, 영상, 후반 작업 미디어",
   "friends.role.rbass": "베이시스트 커뮤니티",
+  "friends.role.notAnotherAudioPodcast": "현업 전문가들이 전하는 오디오, 음악, 테크 업계 팟캐스트",
 
   "release.title": "새 버전이 나왔어요",
   "release.closeAria": "릴리스 창 닫기",
