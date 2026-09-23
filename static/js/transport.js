@@ -491,6 +491,15 @@ function _currentGrid() {
   return null;
 }
 
+// Bumped by every pause and stop, so a count-in still waiting for its start
+// to be scheduled knows it has been overtaken and does not sound afterwards.
+let _countInGeneration = 0;
+
+function _dropCountIn() {
+  _countInGeneration++;
+  metronome?.cancelCountIn?.();
+}
+
 // Arm a count-in when it is enabled and the engine + grid can support one.
 // Starts the audio late (engine.play(leadIn)) and schedules the count clicks in
 // the gap, whether or not the running click is on. Returns true when it took
@@ -510,8 +519,21 @@ function _armCountIn(eng, startPos) {
   // Clicks sit in source time, leading into the start position: the last lands
   // one beat before the audio, so the song enters on the next downbeat.
   const sourceClicks = clicks.map((c) => ({ time: startPos - leadIn + c.offset, accent: c.accent }));
-  eng.play(leadIn); // sets the (future) clock the clicks are scheduled against
-  metronome.playCountIn(sourceClicks);
+  // The clicks can only be placed once the engine's clock describes this
+  // start, and on the streaming engine that can be after a fetch. Scheduling
+  // them as soon as play() returned used the previous start's clock and put
+  // every one in the past, so only the first play of a track ever counted in
+  // (#655). Wait for the start, and drop the count-in if a pause or stop got
+  // there first.
+  // The metronome is held as it is now: if the track changes while the start
+  // is still waiting, the live binding points at the next track's click, and
+  // this one's clicks belong to this one. A destroyed metronome ignores them.
+  const generation = ++_countInGeneration;
+  const clickTrack = metronome;
+  eng.play(leadIn).then((started) => {
+    if (!started || generation !== _countInGeneration) return;
+    clickTrack.playCountIn(sourceClicks);
+  });
   return true;
 }
 
@@ -521,7 +543,7 @@ export function togglePlayPause() {
   if (!tx) return;
   if (tx.isPlaying()) {
     tx.pause();
-    metronome?.cancelCountIn?.(); // drop a count-in if paused before the audio enters
+    _dropCountIn(); // drop a count-in if paused before the audio enters
     // The engine emits no play/pause events (the multitrack stays silent), so
     // the play-button visual that the ws "pause" handler normally toggles must
     // be driven here directly.
@@ -557,7 +579,7 @@ export function stopTransport() {
   const tx = eng ?? multitrack;
   if (!tx) return;
   tx.pause();
-  metronome?.cancelCountIn?.(); // a count-in in progress must not outlive Stop
+  _dropCountIn(); // a count-in in progress must not outlive Stop
   tx.setTime(loopEnabled ? loopStart : 0); // engine: setTime → onTime → stop visual
   if (eng) playBtn.classList.remove("playing");
 }
@@ -1238,8 +1260,19 @@ function _renderCountIn() {
   if (!metroCountInEl) return;
   metroCountInEl.value = String(metronomeCountInBars);
   // The wrap carries the "on" tint the toggle button used to, so the panel
-  // still shows at a glance that a count-in is armed.
+  // still shows at a glance that a count-in is armed. Armed whether or not the
+  // running click is on: the count-in plays on its own (see _armCountIn).
   metroCountInEl.parentElement?.classList.toggle("active", metronomeCountInBars > 0);
+}
+
+// Things that have to follow the click on and off but live in modules this
+// one cannot import without a cycle: the beat grid editor imports from here.
+const _metronomeListeners = new Set();
+
+/** Calls `fn(on)` whenever the click track is switched on or off. */
+export function onMetronomeToggle(fn) {
+  _metronomeListeners.add(fn);
+  return () => _metronomeListeners.delete(fn);
 }
 
 export function toggleMetronome(force) {
@@ -1250,6 +1283,15 @@ export function toggleMetronome(force) {
   metroBtn.setAttribute("aria-pressed", on ? "true" : "false");
   metronome?.setEnabled(on);
   _saveMetroPrefs();
+  // The grid editor follows the click; see beatgridUi. The count-in does not,
+  // because it plays with the click off as well as on.
+  for (const fn of _metronomeListeners) {
+    try {
+      fn(on);
+    } catch (e) {
+      console.warn("[metronome] toggle listener failed:", e);
+    }
+  }
 }
 
 /**

@@ -52,6 +52,27 @@ test.describe("click track", () => {
     await expect(ui.toggle).toHaveAttribute("aria-pressed", "false");
   });
 
+  test("the on/off button is the icon alone, and still says what it is", async ({ page }) => {
+    // It used to carry the word ON, which never changed, so with the click off
+    // it still read ON (#681). The highlight is the state now. The name moved
+    // nowhere: it was always in aria-label and the tooltip, which is what a
+    // screen reader and a hover use.
+    await openStudio(page, { tauri: true });
+    await waitForClickTrack(page);
+    const ui = metro(page);
+
+    await expect(ui.toggle).toHaveText("");
+    await expect(ui.toggle).toHaveAccessibleName("Click track");
+    await expect(ui.toggle).toHaveAttribute("title", "Click track (K)");
+
+    // Square, and the same size as the volume button beside it.
+    const box = await ui.toggle.boundingBox();
+    const vol = await page.locator("#t-metro-vol-btn").boundingBox();
+    expect(Math.round(box.width)).toBe(Math.round(box.height));
+    expect(Math.round(box.width)).toBe(Math.round(vol.width));
+    expect(Math.round(box.height)).toBe(Math.round(vol.height));
+  });
+
   test("the count-in length is chosen from the select and survives a reload", async ({ page }) => {
     await openStudio(page, { tauri: true });
     await waitForClickTrack(page);
@@ -172,6 +193,85 @@ test.describe("click track", () => {
 
     await ui.accent.selectOption("-1");
     await expect(ui.note).toContainText("accenting 4/4 from the detected downbeat");
+  });
+
+  // #655: the grid editor was still open and lit after the click was switched
+  // off. It is a click tool, so it follows the click. The count-in does not:
+  // it plays with the click off, so it stays armed (count-in-replay.spec.mjs).
+  test("the count-in stays armed when the click is switched off", async ({ page }) => {
+    await openStudio(page, { tauri: true });
+    await waitForClickTrack(page);
+    const ui = metro(page);
+    const wrap = page.locator("#t-metro-countin").locator("xpath=..");
+
+    await ui.countIn.selectOption("2");
+    await ui.toggle.click();
+    await ui.toggle.click();
+    await expect(ui.toggle).toHaveAttribute("aria-pressed", "false");
+    await expect(wrap).toHaveClass(/active/);
+    await expect(ui.countIn).toHaveValue("2");
+  });
+
+  test("switching the click off closes the grid editor", async ({ page }) => {
+    await openStudio(page, { tauri: true });
+    await waitForClickTrack(page);
+    const ui = metro(page);
+    const toolbar = page.locator("#beatgrid-toolbar");
+
+    await ui.grid.click();
+    await expect(toolbar).not.toHaveClass(/hidden/);
+
+    await ui.toggle.click();
+    await expect(ui.toggle).toHaveAttribute("aria-pressed", "false");
+    await expect(toolbar).toHaveClass(/hidden/);
+    await expect(ui.grid).not.toHaveClass(/active/);
+    await expect(ui.grid).toHaveAttribute("aria-pressed", "false");
+  });
+
+  test("the K shortcut closes it too", async ({ page }) => {
+    // The shortcut and the button are two ways into the same toggle, and the
+    // editor has to follow both.
+    await openStudio(page, { tauri: true });
+    await waitForClickTrack(page);
+    const ui = metro(page);
+    const toolbar = page.locator("#beatgrid-toolbar");
+
+    await ui.grid.click();
+    await expect(toolbar).not.toHaveClass(/hidden/);
+
+    await page.locator("body").press("k");
+    await expect(ui.toggle).toHaveAttribute("aria-pressed", "false");
+    await expect(toolbar).toHaveClass(/hidden/);
+  });
+
+  test("opening the grid editor with the click off switches the click on", async ({ page }) => {
+    // The editor edits the beats the click plays, and the way to check an edit
+    // is to hear it. Opening it while the click is off would light Grid inside
+    // the panel of a feature that is off, so it asks for the click as well.
+    await openStudio(page, { tauri: true });
+    await waitForClickTrack(page);
+    const ui = metro(page);
+    await expect(ui.toggle).toHaveAttribute("aria-pressed", "false");
+
+    await ui.grid.click();
+
+    await expect(page.locator("#beatgrid-toolbar")).not.toHaveClass(/hidden/);
+    await expect(ui.toggle).toHaveAttribute("aria-pressed", "true");
+    await expect(ui.grid).toHaveClass(/active/);
+  });
+
+  test("closing the grid editor leaves the click as it was", async ({ page }) => {
+    // Only the click can close the editor, not the other way round: Done is
+    // "finished editing", not "stop the click".
+    await openStudio(page, { tauri: true });
+    await waitForClickTrack(page);
+    const ui = metro(page);
+
+    await ui.grid.click();
+    await page.locator("#bg-done").click();
+
+    await expect(ui.grid).not.toHaveClass(/active/);
+    await expect(ui.toggle).toHaveAttribute("aria-pressed", "true");
   });
 
   test("Grid opens and closes the beat-grid editor", async ({ page }) => {
