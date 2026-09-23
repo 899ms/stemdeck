@@ -24,7 +24,7 @@ let jobPollTimerId = null;
 const renderedJobs = new Set();
 const jobSources = new Map();
 // On-demand lead/backing vocal split (#275): which jobs asked for it at
-// submit time (via the Extract bar's Vocals "All / Lead + Backing" toggle).
+// submit time (via the Extract bar's Vocals "Combined / Lead + Backing" toggle).
 // Exported so catalog.js's completeSettledJob (the background-job path --
 // there is no per-job SSE stream for those) can trigger it too, via
 // runVocalSplitIfWanted below. Only covers the primary single-file/single-URL
@@ -103,7 +103,11 @@ function libraryRowKey(state) {
 // With a queue the form has to come back the instant the job is accepted, so
 // the user can queue the next one.
 function setSubmitProcessing(processing) {
-  submitBtn.disabled = processing;
+  // Coming back from a submit is not a reason to open the button if the row
+  // was emptied while the upload ran: an empty stems list is read by the
+  // server as every stem. refreshStemChoiceVisuals applies the same two
+  // conditions from the other side.
+  submitBtn.disabled = processing || selectedStems.size === 0;
   submitBtn.classList.toggle("loading", processing);
   document.querySelector(".strip-sq-process")?.classList.toggle("loading", processing);
   const label = submitBtn.querySelector("span");

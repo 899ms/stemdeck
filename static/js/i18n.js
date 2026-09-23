@@ -240,6 +240,7 @@ const en = {
   "topbar.urlPlaceholder": "Search or drop an audio file…",
   "topbar.removeFile": "Remove file",
   "topbar.uploadFile": "Upload audio file",
+  "topbar.website": "Open stemdeck.app",
   "extract.label": "Extract",
   "extract.all": "All",
   "extract.moreAria": "Choose stems",
@@ -257,7 +258,7 @@ const en = {
   "stem.others": "Others",
 
   "vocalMode.groupAria": "Vocals mode",
-  "vocalMode.all": "All",
+  "vocalMode.all": "Combined",
   "vocalMode.split": "Lead + Backing",
 
   "aria.mute": "Mute {name}",
@@ -857,6 +858,7 @@ const pl = {
   "topbar.urlPlaceholder": "Szukaj albo upuść plik audio…",
   "topbar.removeFile": "Usuń plik",
   "topbar.uploadFile": "Wgraj plik audio",
+  "topbar.website": "Otwórz stemdeck.app",
   "extract.label": "Wyodrębnij",
   "extract.all": "Wszystko",
   "extract.moreAria": "Wybierz ścieżki",
@@ -874,7 +876,7 @@ const pl = {
   "stem.others": "Inne",
 
   "vocalMode.groupAria": "Tryb wokalu",
-  "vocalMode.all": "Wszystko",
+  "vocalMode.all": "Połączone",
   "vocalMode.split": "Wokal + Chórki",
 
   "aria.mute": "Wycisz: {name}",
@@ -1464,6 +1466,7 @@ const ja = {
   "topbar.urlPlaceholder": "検索するか、音声ファイルをドロップ…",
   "topbar.removeFile": "ファイルを削除",
   "topbar.uploadFile": "音声ファイルをアップロード",
+  "topbar.website": "stemdeck.app を開く",
   "extract.label": "抽出",
   "extract.all": "すべて",
   "extract.moreAria": "抽出するパートを選ぶ",
@@ -1481,7 +1484,7 @@ const ja = {
   "stem.others": "その他",
 
   "vocalMode.groupAria": "ボーカルモード",
-  "vocalMode.all": "すべて",
+  "vocalMode.all": "結合",
   "vocalMode.split": "リード+コーラス",
 
   "aria.mute": "{name}をミュート",
@@ -2046,6 +2049,7 @@ const zhHans = {
   "topbar.urlPlaceholder": "搜索，或拖放音频文件…",
   "topbar.removeFile": "移除文件",
   "topbar.uploadFile": "上传音频文件",
+  "topbar.website": "打开 stemdeck.app",
   "extract.label": "提取",
   "extract.all": "全部",
   "extract.moreAria": "选择要提取的音轨",
@@ -2063,7 +2067,7 @@ const zhHans = {
   "stem.others": "其他",
 
   "vocalMode.groupAria": "人声模式",
-  "vocalMode.all": "全部",
+  "vocalMode.all": "合并",
   "vocalMode.split": "主唱+和声",
 
   "aria.mute": "静音{name}",
@@ -2628,6 +2632,7 @@ const de = {
   "topbar.urlPlaceholder": "Suchen oder eine Audiodatei ablegen…",
   "topbar.removeFile": "Datei entfernen",
   "topbar.uploadFile": "Audiodatei hochladen",
+  "topbar.website": "stemdeck.app öffnen",
   "extract.label": "Extrahieren",
   "extract.all": "Alle",
   "extract.moreAria": "Stems auswählen",
@@ -2645,7 +2650,7 @@ const de = {
   "stem.others": "Sonstiges",
 
   "vocalMode.groupAria": "Gesangsmodus",
-  "vocalMode.all": "Alle",
+  "vocalMode.all": "Kombiniert",
   "vocalMode.split": "Lead + Backing",
 
   "aria.mute": "{name} stummschalten",
@@ -3221,6 +3226,7 @@ const pt = {
   "topbar.urlPlaceholder": "Pesquise ou solte um arquivo de áudio…",
   "topbar.removeFile": "Remover arquivo",
   "topbar.uploadFile": "Enviar arquivo de áudio",
+  "topbar.website": "Abrir stemdeck.app",
   "extract.label": "Extrair",
   "extract.all": "Todos",
   "extract.moreAria": "Escolher as faixas",
@@ -3238,7 +3244,7 @@ const pt = {
   "stem.others": "Outros",
 
   "vocalMode.groupAria": "Modo de vocais",
-  "vocalMode.all": "Todos",
+  "vocalMode.all": "Combinados",
   "vocalMode.split": "Principal + Apoio",
 
   "aria.mute": "Mudo {name}",
@@ -3816,6 +3822,7 @@ const id = {
   "topbar.urlPlaceholder": "Cari atau seret file audio…",
   "topbar.removeFile": "Hapus file",
   "topbar.uploadFile": "Unggah file audio",
+  "topbar.website": "Buka stemdeck.app",
   "extract.label": "Ekstrak",
   "extract.all": "Semua",
   "extract.moreAria": "Pilih stem",
@@ -3833,7 +3840,7 @@ const id = {
   "stem.others": "Lainnya",
 
   "vocalMode.groupAria": "Mode vokal",
-  "vocalMode.all": "Semua",
+  "vocalMode.all": "Gabungan",
   "vocalMode.split": "Utama + Latar",
 
   "aria.mute": "Bisukan {name}",
@@ -4398,6 +4405,7 @@ const fr = {
   "topbar.urlPlaceholder": "Recherchez ou déposez un fichier audio…",
   "topbar.removeFile": "Retirer le fichier",
   "topbar.uploadFile": "Importer un fichier audio",
+  "topbar.website": "Ouvrir stemdeck.app",
   "extract.label": "Extraire",
   "extract.all": "Tout",
   "extract.moreAria": "Choisir les pistes",
@@ -4415,7 +4423,7 @@ const fr = {
   "stem.others": "Autres",
 
   "vocalMode.groupAria": "Mode voix",
-  "vocalMode.all": "Tout",
+  "vocalMode.all": "Combinée",
   "vocalMode.split": "Principale + chœurs",
 
   "aria.mute": "Couper {name}",
@@ -5109,6 +5117,7 @@ const es = {
   "topbar.urlPlaceholder": "Busca o suelta un archivo de audio…",
   "topbar.removeFile": "Quitar archivo",
   "topbar.uploadFile": "Subir archivo de audio",
+  "topbar.website": "Abrir stemdeck.app",
   "extract.label": "Extraer",
   "extract.all": "Todo",
   "extract.moreAria": "Elegir las pistas",
@@ -5126,7 +5135,7 @@ const es = {
   "stem.others": "Otros",
 
   "vocalMode.groupAria": "Modo de voces",
-  "vocalMode.all": "Todo",
+  "vocalMode.all": "Combinadas",
   "vocalMode.split": "Principal + coros",
 
   "aria.mute": "Mute {name}",
@@ -5725,6 +5734,7 @@ const ko = {
   "topbar.urlPlaceholder": "검색하거나 오디오 파일을 끌어다 놓으세요…",
   "topbar.removeFile": "파일 제거",
   "topbar.uploadFile": "오디오 파일 업로드",
+  "topbar.website": "stemdeck.app 열기",
   "extract.label": "추출",
   "extract.all": "전체",
   "extract.moreAria": "추출할 스템 선택",
@@ -5742,7 +5752,7 @@ const ko = {
   "stem.others": "기타 소리",
 
   "vocalMode.groupAria": "보컬 모드",
-  "vocalMode.all": "전체",
+  "vocalMode.all": "통합",
   "vocalMode.split": "리드 + 백",
 
   "aria.mute": "{name} 음소거",
